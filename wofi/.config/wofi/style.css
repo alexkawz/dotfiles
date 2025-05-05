@@ -50,6 +50,7 @@
 @define-color	mantle-rgb  rgb(24, 24, 37);
 @define-color	crust  #11111b;
 @define-color	crust-rgb  rgb(17, 17, 27);
+@define-color   sienna  #A0522D;
 
 * {
   font-family: 'CaskaydiaCove Nerd Font', monospace;
@@ -60,7 +61,7 @@
 window {
   margin: 0px;
   padding: 10px;
-  border: 2px solid @lavender;
+  border: 2px solid @sienna;
   border-radius: 8px;
   background-color: @base;
 }
@@ -121,18 +122,18 @@ window {
 
 #entry arrow {
   border: none;
-  color: @lavender;
+  color: @sienna;
 }
 
 /* Selected Entry */
 #entry:selected {
-  border: 0.11em solid @lavender;
+  border: 0.11em solid @sienna;
 }
 
 #entry:selected #text {
-  color: @mauve;
+  color: @sienna;
 }
 
 #entry:drop(active) {
-  background-color: @lavender!important;
+  background-color: @sienna!important;
 }
