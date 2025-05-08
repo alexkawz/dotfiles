@@ -4,8 +4,13 @@ local wezterm = require("wezterm")
 -- This will hodl the config
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("CaskaydiaMono Nerd Font")
-config.font_size = 18
+--Comment out for mac
+config.font = wezterm.font("CaskaydiaCove Nerd Font Mono")
+config.font_size = 14
+
+-- Comment out for linux
+-- config.font = wezterm.font("CaskaydiaMono Nerd Font")
+--config.font_size = 18
 
 config.enable_tab_bar = false
 
