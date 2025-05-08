@@ -8,17 +8,18 @@ $git_state\
 $git_status\
 $character"""
 
-right_format = """
-$git_branch\
-"""
+#right_format = """
+#$time
+#$git_branch\
+#"""
 
-add_newline = false
+add_newline = true
 palette = "everforest"
 
 [os]
 disabled = false
 format = '[$symbol ]($style)'
-style = 'fg:grey2'
+style = "bg:surface0 fg:grey2"
 
 [os.symbols]
 Windows = "󰍲"
@@ -43,8 +44,8 @@ RedHatEnterprise = "󱄛"
 
 [username]
 show_always = true
-style_root = 'fg:red'
-style_user = 'fg:blue'
+style_root = "bg:surface0 fg:red"
+style_user = "bg:surface0 fg:blue"
 format = '[$user]($style)'
 
 [hostname]
@@ -53,8 +54,8 @@ style = 'fg:blue'
 format = '[@$hostname]($style) '
 
 [directory]
-style = "fg:orange"
-read_only_style = "fg:orange"
+style = 'fg:orange'
+#read_only_style = "fg:orange"
 truncation_length = 3
 truncation_symbol = "…/"
 format = "[ $path]($style)[$read_only]($read_only_style) "
@@ -81,6 +82,7 @@ bg_red = "#514045"
 bg_green = "#425047"
 bg_blue = "#3a515d"
 bg_yellow = "#4d4c43"
+white = "#ffffff"
 
 fg = "#d3c6aa"
 red = "#e67e80"
