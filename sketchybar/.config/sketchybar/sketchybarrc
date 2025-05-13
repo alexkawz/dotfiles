@@ -24,6 +24,11 @@ sketchybar --bar position=top height=40 blur_radius=30 color=$BAR_COLOR
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
+# aerospace setting
+AEROSPACE_FOCUSED_MONITOR_NO=$(aerospace list-workspaces --focused)
+AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_MONITOR_NO | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+
+
 default=(
   padding_left=5
   padding_right=5
@@ -42,9 +47,7 @@ default=(
 sketchybar --default "${default[@]}"
 
 # Left Bar
-source $ITEM_DIR/front_app.sh
-source $ITEM_DIR/spaces.sh
-
+source $ITEM_DIR/aerospace.sh
 # add to right side of notch
 source $ITEM_DIR/media.sh
 
@@ -53,6 +56,7 @@ source $ITEM_DIR/calendar.sh
 source $ITEM_DIR/volume.sh
 source $ITEM_DIR/battery.sh
 source $ITEM_DIR/cpu.sh
+source $ITEM_DIR/front_app.sh
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
