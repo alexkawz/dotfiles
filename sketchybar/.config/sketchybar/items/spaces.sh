@@ -1,21 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-#sketchybar --add event aerospace_workspace_change
-#
-#for sid in $(aerospace list-workspaces --all); do
-    #sketchybar --add item space.$sid left \
-        #--subscribe space.$sid aerospace_workspace_change \
-        #--set space.$sid \
-        #background.color=$ACCENT_COLOR \
-        #background.corner_radius=5 \
-        #background.height=25 \
-        #background.drawing=off \
-        #label="$sid" \
-        #click_script="aerospace workspace $sid" \
-        #script="$CONFIG_DIR/plugins/aerospace.sh $sid"
-#done
-#
+#SPACE_ICONS=("1" "2" "3" "4")
 
+# Destroy space on right click, focus space on left click.
+# New space by left clicking separator (>)
 
 sketchybar --add event aerospace_workspace_change
 #echo $(aerospace list-workspaces --monitor 1 --visible no --empty no) >> ~/aaaa
@@ -33,12 +21,12 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
       padding_left=2
       padding_right=2
       label.padding_right=20
-      label.color=$WHITE
+      label.color=$GREY
       label.highlight_color=$WHITE
       label.font="sketchybar-app-font:Regular:16.0"
       label.y_offset=-1
-      background.color=$ACCENT_COLOR
-      background.border_color=$ACCENT_COLOR
+      background.color=$BACKGROUND_1
+      background.border_color=$BACKGROUND_2
       script="$PLUGIN_DIR/space.sh"
     )
 
@@ -49,14 +37,14 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
     apps=$(aerospace list-windows --workspace $sid | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
     icon_strip=" "
-    #if [ "${apps}" != "" ]; then
-      #while read -r app
-      #do
-        #icon_strip+=" $($CONFIG_DIR/plugins/icon_map_fn.sh "$app")"
-      #done <<< "${apps}"
-    #else
-      #icon_strip=" —"
-    #fi
+    if [ "${apps}" != "" ]; then
+      while read -r app
+      do
+        icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
+      done <<< "${apps}"
+    else
+      icon_strip=" —"
+    fi
 
     sketchybar --set space.$sid label="$icon_strip"
   done
@@ -68,18 +56,18 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
 done
 
 
-#space_creator=(
-  #icon=􀆊
-  #icon.font="$FONT:Heavy:16.0"
-  #padding_left=10
-  #padding_right=8
-  #label.drawing=off
-  #display=active
-  ##click_script='yabai -m space --create'
-  #script="$PLUGIN_DIR/space_windows.sh"
-  ##script="$PLUGIN_DIR/aerospace.sh"
-  #icon.color=$WHITE
-#)
+space_creator=(
+  icon=􀆊
+  icon.font="$FONT:Heavy:16.0"
+  padding_left=10
+  padding_right=8
+  label.drawing=off
+  display=active
+  #click_script='yabai -m space --create'
+  script="$PLUGIN_DIR/space_windows.sh"
+  #script="$PLUGIN_DIR/aerospace.sh"
+  icon.color=$WHITE
+)
 
 # sketchybar --add item space_creator left               \
 #            --set space_creator "${space_creator[@]}"   \
