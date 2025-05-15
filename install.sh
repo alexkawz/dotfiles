@@ -10,6 +10,7 @@ brew install --cask nikitabobko/tap/aerospace
 echo "Installing wezterm"
 brew install --cask wezterm
 echo "Installing Sketchybar"
+brew tap FelixKratz/formulae
 brew install sketchybar
 echo "Installing Janky Borders"
 brew tap FelixKratz/formulae
