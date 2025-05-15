@@ -375,8 +375,8 @@ function __icon_map() {
    "Notion")
         icon_result=":notion:"
         ;;
-   "Nova")
-        icon_result=":nova:"
+   "Microsoft_Outlook")
+        icon_result=":Mail:"
         ;;
    "Numbers" | "Numbers 表格")
         icon_result=":numbers:"
@@ -598,7 +598,7 @@ function __icon_map() {
         icon_result=":wecom:"
         ;;
    "WezTerm")
-        icon_result=":wezterm:"
+        icon_result=":terminal:"
         ;;
    "WhatsApp" | "‎WhatsApp")
         icon_result=":whats_app:"
@@ -624,8 +624,8 @@ function __icon_map() {
    "Zotero")
         icon_result=":zotero:"
         ;;
-   "Zulip")
-        icon_result=":zulip:"
+   "Zen")
+        icon_result=":firefox:"
         ;;
     *)
         icon_result=":default:"
