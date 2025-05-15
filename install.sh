@@ -6,7 +6,7 @@ brew install jq
 echo "Installing Neofetch"
 brew install neofetch
 echo "Installing aerospace"
-brew install --cask nikitabobko/tap/aerospacerea
+brew install --cask nikitabobko/tap/aerospace
 echo "Installing wezterm"
 brew install --cask wezterm
 echo "Installing Sketchybar"
