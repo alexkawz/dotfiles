@@ -14,12 +14,16 @@ brew install sketchybar
 echo "Installing Janky Borders"
 brew tap FelixKratz/formulae
 brew install borders
+echo "Installing Starship"
+brew install starship
+
 
 echo "Stowing folders to .config"
 stow aerospace
 stow borders
 stow sketchybar
 stow wezterm
+stow starship
 
 echo "Making sketchy bar plugins executable"
 chmod +x ~/.config/sketchybar/colors.sh
