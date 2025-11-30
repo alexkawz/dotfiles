@@ -25,7 +25,7 @@
         "format": "{}",
         "max-length": 50
     },
-    "hyprland/workspaces": {
+    "hyprland/workspaces_v2": {
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
@@ -33,9 +33,6 @@
             "active": "󰮯",
             "urgent": "󰊠"
         },
-        "persistent_workspaces": {
-            "*": 5
-        }
     },
     "cpu": {
         "interval": 5,
@@ -63,9 +60,23 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:󰥔 %R  󰃭 %A %d}",
-        "on-click": "eww open Calendar --toggle --config ~/.config/eww/applets/",
-        "tooltip-format": "{:%A %d %B %Y}"
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "{:%Y-%m-%d %A}",
+    "interval": 60,
+    "locale": "en_US.UTF-8",
+    "actions": {
+        "on-click-right": "mode",
+        "on-scroll-up": "tz_up",
+        "on-scroll-down": "tz_down"
+    },
+    "calendar": {
+        "mode": "year",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "on-click-right": "mode"
+    }
+
     },
     "custom/swaync": {
         "tooltip": false,
@@ -101,9 +112,9 @@
         "interval": 5
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{volume}%",
         "tooltip": false,
-        "format-muted": " Muted",
+        "format-muted": "Muted",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
