@@ -59,6 +59,11 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctCall .. "volume-down"), { lo
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(noctCall .. "volume-mute"), { locked = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd(noctCall .. "mic-mute"),    { locked = true })
 
+-- Discord (native Wayland can't see global keys, so send its own
+-- Ctrl+Shift+M / Ctrl+Shift+D shortcuts straight to the window)
+hl.bind("CTRL + SHIFT + M", hl.dsp.send_shortcut({ mods = "CTRL SHIFT", key = "M", window = "class:discord" }))
+hl.bind("CTRL + SHIFT + D", hl.dsp.send_shortcut({ mods = "CTRL SHIFT", key = "D", window = "class:discord" }))
+
 -- Media
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd(noctCall .. "media toggle"),   { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd(noctCall .. "media toggle"),   { locked = true })
